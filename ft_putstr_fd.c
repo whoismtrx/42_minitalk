@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: orekabe <orekabe@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/20 01:47:59 by orekabe           #+#    #+#             */
-/*   Updated: 2022/05/20 01:48:42 by orekabe          ###   ########.fr       */
+/*   Created: 2021/11/19 10:47:50 by orekabe           #+#    #+#             */
+/*   Updated: 2022/05/20 00:54:48 by orekabe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINITALK_H
-# define MINITALK_H
-# include <unistd.h>
-# include <signal.h>
+#include "minitalk.h"
 
-void	ft_putchar_fd(char c, int fd);
-void	ft_putstr_fd(char *s, int fd);
-void	ft_putnbr_fd(int n, int fd);
-int		ft_atoi(const char *str);
-int		ft_power(int nb, int power);
-int		ft_strlen(const char *s);
+void	ft_putstr_fd(char *s, int fd)
+{
+	int	i;
 
-#endif
+	if (!s)
+		return ;
+	i = 0;
+	while (s[i])
+	{
+		write(fd, &s[i], 1);
+		i++;
+	}
+}

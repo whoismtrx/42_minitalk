@@ -8,7 +8,7 @@ NAMEC = client
 
 HEADER = minitalk.h
 
-SRC = ft_putchar_fd.c ft_putnbr_fd.c ft_atoi.c ft_power.c
+SRC = ft_putchar_fd.c ft_putnbr_fd.c ft_atoi.c ft_power.c ft_strlen.c ft_putstr_fd.c
 
 SRCS = server.c
 

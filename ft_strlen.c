@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: orekabe <orekabe@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/20 01:47:59 by orekabe           #+#    #+#             */
-/*   Updated: 2022/05/20 01:48:42 by orekabe          ###   ########.fr       */
+/*   Created: 2021/11/04 19:05:29 by orekabe           #+#    #+#             */
+/*   Updated: 2022/05/20 00:16:15 by orekabe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINITALK_H
-# define MINITALK_H
-# include <unistd.h>
-# include <signal.h>
+#include "minitalk.h"
 
-void	ft_putchar_fd(char c, int fd);
-void	ft_putstr_fd(char *s, int fd);
-void	ft_putnbr_fd(int n, int fd);
-int		ft_atoi(const char *str);
-int		ft_power(int nb, int power);
-int		ft_strlen(const char *s);
+int	ft_strlen(const char *s)
+{
+	int	i;
 
-#endif
+	i = 0;
+	while (s[i] != '\0')
+		i++;
+	return (i);
+}
