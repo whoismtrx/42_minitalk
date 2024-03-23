@@ -8,9 +8,11 @@ This project is a small data exchange program using UNIX signals. You need to co
 
 ## Key Features
 
-The project is divided into two parts `Mandatory` and `Bonus`, every part has two programs, one for the server and the other one for the client.
-- server: The server runs first, displays its PID, and waits for the client to send a message.
-- client: The client takes the server's PID and a string as arguments, sends the string to the server, and the server displays the string. the string can contain Unicode characters in the bonus part.
+The project is divided into two parts `Mandatory` and `Bonus`, every part has two programs, one for the `server` and the other one for the `client`.
+- `server`: The server runs first, displays its PID, and waits for the client to send a message.
+- `client`: The client takes the server's PID and a string as arguments, sends the string to the server.
+
+The server displays the string. the string can contain Unicode characters in the bonus part.
 
 ## Getting Started
 
@@ -24,7 +26,7 @@ make
 
 ## Usage
 
-To run the server, you the executable named `server` with no arguments:
+To run the server, you should run the executable named `server` with no arguments:
 
 ```
 ./server
