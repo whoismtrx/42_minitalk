@@ -1,6 +1,6 @@
 # minitalk
 
-![](https://github.com/whoismtrx/42_minitalk/blob/main/gifs/minitalk.gif)
+![](https://github.com/whoismtrx/42_minitalk/blob/main/minitalk.gif)
 
 ## Overview
 
