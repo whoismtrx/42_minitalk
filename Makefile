@@ -22,45 +22,69 @@ NAMESB = server_bonus
 
 NAMECB = client_bonus
 
-HEADER = minitalk.h
+HEADER = -I./include
 
-SRC = ft_putchar_fd.c ft_putnbr_fd.c ft_atoi.c ft_power.c ft_strlen.c ft_putstr_fd.c ft_hand_error.c
+SRCD = ./src
 
-SRCS = server.c
+OBJD = ./objs
 
-SRCC = client.c
+SRC = $(SRCD)/ft_putchar_fd.c $(SRCD)/ft_putnbr_fd.c $(SRCD)/ft_atoi.c $(SRCD)/ft_power.c $(SRCD)/ft_strlen.c $(SRCD)/ft_putstr_fd.c $(SRCD)/ft_hand_error.c
 
-SRCSB = server_bonus.c
+SRCS = $(SRCD)/server.c
 
-SRCCB = client_bonus.c
+SRCC = $(SRCD)/client.c
 
-OBJ = $(SRC:.c=.o)
+SRCSB = $(SRCD)/server_bonus.c
 
-OBJS = $(SRCS:.c=.o)
+SRCCB = $(SRCD)/client_bonus.c
 
-OBJC = $(SRCC:.c=.o)
+OBJ = $(addprefix $(OBJD)/, $(notdir $(SRC:.c=.o)))
 
-OBJSB = $(SRCSB:.c=.o)
+OBJS = $(addprefix $(OBJD)/, $(notdir $(SRCS:.c=.o)))
 
-OBJCB = $(SRCCB:.c=.o)
+OBJC = $(addprefix $(OBJD)/, $(notdir $(SRCC:.c=.o)))
+
+OBJSB = $(addprefix $(OBJD)/, $(notdir $(SRCSB:.c=.o)))
+
+OBJCB = $(addprefix $(OBJD)/, $(notdir $(SRCCB:.c=.o)))
 
 all: $(NAMES) $(NAMEC)
 
 $(NAMES): $(OBJ) $(OBJS)
+	@echo "███╗   ███╗██╗███╗   ██╗██╗████████╗ █████╗ ██╗     ██╗  ██╗"
+	@echo "████╗ ████║██║████╗  ██║██║╚══██╔══╝██╔══██╗██║     ██║ ██╔╝"
+	@echo "██╔████╔██║██║██╔██╗ ██║██║   ██║   ███████║██║     █████╔╝ "
+	@echo "██║╚██╔╝██║██║██║╚██╗██║██║   ██║   ██╔══██║██║     ██╔═██╗ "
+	@echo "██║ ╚═╝ ██║██║██║ ╚████║██║   ██║   ██║  ██║███████╗██║  ██╗"
+	@echo "╚═╝     ╚═╝╚═╝╚═╝  ╚═══╝╚═╝   ╚═╝   ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝"
+	@echo "                   		BY: MTRX"
+	@$(CC) $(OBJ) $(OBJS) -o $@
 
 $(NAMEC): $(OBJ) $(OBJC)
+	@$(CC) $(OBJ) $(OBJC) -o $@
+
+$(NAMESB): $(OBJ) $(OBJSB)
+	@echo "███╗   ███╗██╗███╗   ██╗██╗████████╗ █████╗ ██╗     ██╗  ██╗"
+	@echo "████╗ ████║██║████╗  ██║██║╚══██╔══╝██╔══██╗██║     ██║ ██╔╝"
+	@echo "██╔████╔██║██║██╔██╗ ██║██║   ██║   ███████║██║     █████╔╝ "
+	@echo "██║╚██╔╝██║██║██║╚██╗██║██║   ██║   ██╔══██║██║     ██╔═██╗ "
+	@echo "██║ ╚═╝ ██║██║██║ ╚████║██║   ██║   ██║  ██║███████╗██║  ██╗"
+	@echo "╚═╝     ╚═╝╚═╝╚═╝  ╚═══╝╚═╝   ╚═╝   ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝"
+	@echo "                   		BY: MTRX"
+	@$(CC) $(OBJ) $(OBJSB) -o $@
+
+$(NAMECB): $(OBJ) $(OBJCB)
+	@$(CC) $(OBJ) $(OBJCB) -o $@
+
+$(OBJD)/%.o: $(SRCD)/%.c
+	@mkdir -p $(OBJD)
+	@printf "Compiling $<\r"
+	@$(CC) -c $(CFLAGS) $(HEADER) $< -o $@
 
 bonus : $(NAMESB) $(NAMECB)
 
-$(NAMESB): $(OBJ) $(OBJSB)
-
-$(NAMECB): $(OBJ) $(OBJCB)
-
-%.o: %.c $(HEADER)
-	$(CC) -c $(CFLAGS) $<
-
 clean:
-	rm -rf $(OBJ) $(OBJS) $(OBJC) $(OBJSB) $(OBJCB)
+	rm -rf $(OBJD)
 
 fclean: clean
 	rm -rf $(NAMES) $(NAMEC) $(NAMESB) $(NAMECB)
