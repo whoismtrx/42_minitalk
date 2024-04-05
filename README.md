@@ -19,7 +19,7 @@ The server displays the string. the string can contain Unicode characters in the
 To get started using minitalk, you need to clone the repository and run the following commands:
 
 ```
-git clone git@github.com:whoismtrx/42_minitalk.git minitalk
+git clone https://github.com/whoismtrx/42_minitalk.git minitalk
 cd minitalk
 make
 ```
